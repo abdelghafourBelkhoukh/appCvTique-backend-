@@ -73,11 +73,8 @@ public class Student {
     } else if (!name.equals(other.name))
       return false;
     if (email == null) {
-      if (other.email != null)
-        return false;
-    } else if (!email.equals(other.email))
-      return false;
-    return true;
+      return other.email == null;
+    } else return email.equals(other.email);
   }
 
   @Override

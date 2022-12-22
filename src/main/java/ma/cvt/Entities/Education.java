@@ -19,8 +19,7 @@ public class Education {
             if (!degree.equals(education.degree)) return false;
             if (!fieldOfStudy.equals(education.fieldOfStudy)) return false;
             if (!from.equals(education.from)) return false;
-            if (!to.equals(education.to)) return false;
-            return description.equals(education.description);
+            return to.equals(education.to);
         }
 
         @Override
@@ -31,7 +30,6 @@ public class Education {
             result = 31 * result + fieldOfStudy.hashCode();
             result = 31 * result + from.hashCode();
             result = 31 * result + to.hashCode();
-            result = 31 * result + description.hashCode();
             return result;
         }
 
@@ -44,7 +42,6 @@ public class Education {
                     ", fieldOfStudy='" + fieldOfStudy + '\'' +
                     ", from='" + from + '\'' +
                     ", to='" + to + '\'' +
-                    ", description='" + description + '\'' +
                     '}';
         }
 
@@ -54,19 +51,16 @@ public class Education {
         private String fieldOfStudy;
         private String from;
         private String to;
-        private String description;
 
         public Education() {
         }
 
-        public Education(Long id, String school, String degree, String fieldOfStudy, String from, String to, String description) {
-            this.id = id;
+        public Education( String school, String degree, String fieldOfStudy, String from, String to )  {
             this.school = school;
             this.degree = degree;
             this.fieldOfStudy = fieldOfStudy;
             this.from = from;
             this.to = to;
-            this.description = description;
         }
 
         public Long getId() {
@@ -117,12 +111,5 @@ public class Education {
             this.to = to;
         }
 
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
 
     }

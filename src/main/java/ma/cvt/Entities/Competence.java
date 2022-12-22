@@ -40,8 +40,7 @@ public class Competence {
     public Competence() {
     }
 
-    public Competence(Long id, String name) {
-        this.id = id;
+    public Competence( String name) {
         this.name = name;
     }
 
