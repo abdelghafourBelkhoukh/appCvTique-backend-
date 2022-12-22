@@ -1,0 +1,21 @@
+version: "3.1"
+services:
+  client:
+    image: node:lts
+    working_dir: /app/
+    entrypoint: /bin/bash
+    ports:
+      - 8000:8000
+    volumes:
+      - ./client/:/app
+    tty: true
+
+  backend:
+    image: node:lts
+    working_dir: /app/
+    entrypoint: /bin/bash
+    ports:
+      - 8888:8000
+    volumes:
+      - ./backend/:/app
+    tty: true
