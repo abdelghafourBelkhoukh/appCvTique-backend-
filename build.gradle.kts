@@ -24,3 +24,10 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.bootRun {
+    file(".env").readLines().forEach {
+        val (key, value) = it.split("=")
+        environment(key, value)
+    }
+}
