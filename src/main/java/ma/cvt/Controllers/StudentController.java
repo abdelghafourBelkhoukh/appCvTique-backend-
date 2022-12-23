@@ -55,4 +55,12 @@ public class StudentController {
     repository.deleteById(id);
   }
 
+  // danger
+  @DeleteMapping("/rm-rf")
+  void wipe() {
+    repository.findAll().forEach(student -> {
+      repository.delete(student);
+    });
+  }
+
 }
