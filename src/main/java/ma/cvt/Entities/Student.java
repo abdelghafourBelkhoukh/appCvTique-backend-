@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 public class Student {
 
   private @Id @GeneratedValue Long id;
+
   private String name;
   private String email;
 
