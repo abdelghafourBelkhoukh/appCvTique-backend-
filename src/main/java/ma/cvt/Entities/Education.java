@@ -7,109 +7,118 @@ import jakarta.persistence.Id;
 @Entity
 public class Education {
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+  private @Id @GeneratedValue Long id;
 
-            Education education = (Education) o;
+  private String school;
 
-            if (!id.equals(education.id)) return false;
-            if (!school.equals(education.school)) return false;
-            if (!degree.equals(education.degree)) return false;
-            if (!fieldOfStudy.equals(education.fieldOfStudy)) return false;
-            if (!from.equals(education.from)) return false;
-            return to.equals(education.to);
-        }
+  private String degree;
 
-        @Override
-        public int hashCode() {
-            int result = id.hashCode();
-            result = 31 * result + school.hashCode();
-            result = 31 * result + degree.hashCode();
-            result = 31 * result + fieldOfStudy.hashCode();
-            result = 31 * result + from.hashCode();
-            result = 31 * result + to.hashCode();
-            return result;
-        }
+  private String fieldOfStudy;
+  private String start_date;
+  private String end_date;
 
-        @Override
-        public String toString() {
-            return "Education{" +
-                    "id=" + id +
-                    ", school='" + school + '\'' +
-                    ", degree='" + degree + '\'' +
-                    ", fieldOfStudy='" + fieldOfStudy + '\'' +
-                    ", from='" + from + '\'' +
-                    ", to='" + to + '\'' +
-                    '}';
-        }
+  public Education() {
+  }
 
-        private @Id @GeneratedValue Long id;
-        private String school;
-        private String degree;
-        private String fieldOfStudy;
-        private String from;
-        private String to;
+  public Education(String school, String degree, String fieldOfStudy, String start_date, String end_date) {
+    this.school = school;
+    this.degree = degree;
+    this.fieldOfStudy = fieldOfStudy;
+    this.start_date = start_date;
+    this.end_date = end_date;
+  }
 
-        public Education() {
-        }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
 
-        public Education( String school, String degree, String fieldOfStudy, String from, String to )  {
-            this.school = school;
-            this.degree = degree;
-            this.fieldOfStudy = fieldOfStudy;
-            this.from = from;
-            this.to = to;
-        }
+    Education education = (Education) o;
 
-        public Long getId() {
-            return id;
-        }
+    if (!id.equals(education.id))
+      return false;
+    if (!school.equals(education.school))
+      return false;
+    if (!degree.equals(education.degree))
+      return false;
+    if (!fieldOfStudy.equals(education.fieldOfStudy))
+      return false;
+    if (!start_date.equals(education.start_date))
+      return false;
+    return end_date.equals(education.end_date);
+  }
 
-        public void setId(Long id) {
-            this.id = id;
-        }
+  @Override
+  public int hashCode() {
+    int result = id.hashCode();
+    result = 31 * result + school.hashCode();
+    result = 31 * result + degree.hashCode();
+    result = 31 * result + fieldOfStudy.hashCode();
+    result = 31 * result + start_date.hashCode();
+    result = 31 * result + end_date.hashCode();
+    return result;
+  }
 
-        public String getSchool() {
-            return school;
-        }
+  @Override
+  public String toString() {
+    return "Education{" +
+        "id=" + id +
+        ", school='" + school + '\'' +
+        ", degree='" + degree + '\'' +
+        ", fieldOfStudy='" + fieldOfStudy + '\'' +
+        ", from='" + start_date + '\'' +
+        ", to='" + end_date + '\'' +
+        '}';
+  }
 
-        public void setSchool(String school) {
-            this.school = school;
-        }
+  public Long getId() {
+    return id;
+  }
 
-        public String getDegree() {
-            return degree;
-        }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-        public void setDegree(String degree) {
-            this.degree = degree;
-        }
+  public String getSchool() {
+    return school;
+  }
 
-        public String getFieldOfStudy() {
-            return fieldOfStudy;
-        }
+  public void setSchool(String school) {
+    this.school = school;
+  }
 
-        public void setFieldOfStudy(String fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-        }
+  public String getDegree() {
+    return degree;
+  }
 
-        public String getFrom() {
-            return from;
-        }
+  public void setDegree(String degree) {
+    this.degree = degree;
+  }
 
-        public void setFrom(String from) {
-            this.from = from;
-        }
+  public String getFieldOfStudy() {
+    return fieldOfStudy;
+  }
 
-        public String getTo() {
-            return to;
-        }
+  public void setFieldOfStudy(String fieldOfStudy) {
+    this.fieldOfStudy = fieldOfStudy;
+  }
 
-        public void setTo(String to) {
-            this.to = to;
-        }
+  public String getStart_date() {
+    return start_date;
+  }
 
+  public void setStart_date(String from) {
+    this.start_date = from;
+  }
 
-    }
+  public String getEnd_date() {
+    return end_date;
+  }
+
+  public void setEnd_date(String to) {
+    this.end_date = to;
+  }
+
+}
