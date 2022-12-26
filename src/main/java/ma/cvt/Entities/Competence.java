@@ -3,6 +3,7 @@ package ma.cvt.Entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Competence {
@@ -37,6 +38,17 @@ public class Competence {
     @GeneratedValue Long id;
     private String name;
 
+    public Cv getCv() {
+        return cv;
+    }
+
+    public void setCv(Cv cv) {
+        this.cv = cv;
+    }
+
+    //mapping between competence and cv
+    @ManyToOne
+    private Cv cv;
     public Competence() {
     }
 

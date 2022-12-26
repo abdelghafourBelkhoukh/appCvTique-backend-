@@ -3,6 +3,7 @@ package ma.cvt.Entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Experience {
@@ -17,6 +18,17 @@ public class Experience {
   private String location;
   private String start_date;
   private String end_date;
+
+  public Cv getCv() {
+    return cv;
+  }
+
+  public void setCv(Cv cv) {
+    this.cv = cv;
+  }
+
+  @ManyToOne
+  private Cv cv;
 
   private String description;
 
