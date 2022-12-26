@@ -9,6 +9,7 @@ abstract public class User {
 
   private @Id @GeneratedValue Long id;
   private String name;
+  private String email;
 
   public User() {
   }
@@ -18,7 +19,6 @@ abstract public class User {
     this.email = email;
   }
 
-  private String email;
 
   public Long getId() {
     return id;
@@ -74,11 +74,8 @@ abstract public class User {
     } else if (!name.equals(other.name))
       return false;
     if (email == null) {
-      if (other.email != null)
-        return false;
-    } else if (!email.equals(other.email))
-      return false;
-    return true;
+      return other.email == null;
+    } else return email.equals(other.email);
   }
 
   @Override
