@@ -12,14 +12,17 @@ import ma.cvt.Repositories.StudentRepository;
 @Configuration
 public class LoadDatabase {
 
-    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+  private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-    @Bean
-    CommandLineRunner initDatabase(StudentRepository repository) {
-        return args -> {
-            log.info("preloading " + repository.save(new Student("emad", "emad@youcode.ma")));
-            log.info("preloading " + repository.save(new Student("second", "second@youcode.ma")));
-        };
-    }
+  @Bean
+  CommandLineRunner initDatabase(StudentRepository repository) {
+    return args -> {
+      var emad = repository.findByName("emad");
+      if (emad != null)
+        log.info("found: " + emad.toString());
+      else
+        log.info("preloading " + repository.save(new Student("emad", "emad@youcode.ma")));
+    };
+  }
 
 }
