@@ -3,6 +3,7 @@ package ma.cvt.Entities;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Transient;
 
 @MappedSuperclass
 abstract public class User {
@@ -11,14 +12,16 @@ abstract public class User {
   private String name;
   private String email;
 
+  private @Transient String ROLE;
+
   public User() {
   }
 
-  public User(String name, String email) {
+  public User(String name, String email, String role) {
     this.name = name;
     this.email = email;
+    this.ROLE = role;
   }
-
 
   public Long getId() {
     return id;
@@ -75,12 +78,13 @@ abstract public class User {
       return false;
     if (email == null) {
       return other.email == null;
-    } else return email.equals(other.email);
+    } else
+      return email.equals(other.email);
   }
 
   @Override
   public String toString() {
-    return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+    return ROLE + " [id=" + id + ", name=" + name + ", email=" + email + "]";
   }
 
 }

@@ -11,7 +11,7 @@ public class Former extends User {
   }
 
   public Former(String name, String email) {
-    super(name, email);
+    super(name, email, ROLE);
   }
 
 }

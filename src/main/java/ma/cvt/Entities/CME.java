@@ -8,7 +8,7 @@ public class CME extends User {
   }
 
   public CME(String name, String email) {
-    super(name, email);
+    super(name, email, ROLE);
   }
 
   public static final String ROLE = "cme";
